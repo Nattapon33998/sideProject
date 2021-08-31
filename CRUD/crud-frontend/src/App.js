@@ -4,9 +4,36 @@ import { useState } from "react";
 function App() {
   const [employeesList, setEmployeesList] = useState([]);
 
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(0);
+  const [country, setCountry] = useState("");
+  const [position, setPosition] = useState("");
+  const [wage, setWage] = useState(0);
+
   const getEmployees = () => {
     Axios.get("http://localhost:3001/employees").then((response) => {
       setEmployeesList(response.data);
+    });
+  };
+
+  const addEmployee = () => {
+    Axios.post("http://localhost:3001/create", {
+      name: name,
+      age: age,
+      country: country,
+      position: position,
+      wage: wage,
+    }).then(() => {
+      setEmployeesList([
+        ...employeesList,
+        {
+          name: name,
+          age: age,
+          country: country,
+          position: position,
+          wage: wage,
+        },
+      ]);
     });
   };
 
@@ -23,6 +50,7 @@ function App() {
               type="text"
               className="form-control"
               placeholder="Enter name"
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -34,6 +62,7 @@ function App() {
               type="number"
               className="form-control"
               placeholder="Enter age"
+              onChange={(e) => setAge(e.target.value)}
             />
           </div>
 
@@ -45,6 +74,7 @@ function App() {
               type="text"
               className="form-control"
               placeholder="Enter country"
+              onChange={(e) => setCountry(e.target.value)}
             />
           </div>
 
@@ -56,6 +86,7 @@ function App() {
               type="text"
               className="form-control"
               placeholder="Enter position"
+              onChange={(e) => setPosition(e.target.value)}
             />
           </div>
 
@@ -67,10 +98,13 @@ function App() {
               type="text"
               className="form-control"
               placeholder="Enter wage"
+              onChange={(e) => setWage(e.target.value)}
             />
           </div>
 
-          <button className="btn btn-success">Add Employee</button>
+          <button className="btn btn-success" onClick={addEmployee}>
+            Add Employee
+          </button>
         </form>
       </div>
       <hr />
