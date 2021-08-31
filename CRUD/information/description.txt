@@ -1,0 +1,4 @@
+This project is CRUD or Create Read Update & Delete.
+Stack of this projet:
+            Client: ReactJS
+            Server: NodeJS&MySQL
