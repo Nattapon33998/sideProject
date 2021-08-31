@@ -1,4 +1,15 @@
+import Axios from "axios";
+import { useState } from "react";
+
 function App() {
+  const [employeesList, setEmployeesList] = useState([]);
+
+  const getEmployees = () => {
+    Axios.get("http://localhost:3001/employees").then((response) => {
+      setEmployeesList(response.data);
+    });
+  };
+
   return (
     <div className="App Container m-5">
       <h1>Employee Information</h1>
@@ -65,7 +76,22 @@ function App() {
       <hr />
 
       <div className="employees">
-        <button className="btn btn-primary">Show employee</button>
+        <button className="btn btn-primary" onClick={getEmployees}>
+          Show employee
+        </button>
+        {employeesList.map((val, key) => {
+          return (
+            <div className="employee card mt-2">
+              <div className="card-body text-left">
+                <p className="card-text">Name: {val.name}</p>
+                <p className="card-text">Age: {val.age}</p>
+                <p className="card-text">Country: {val.country}</p>
+                <p className="card-text">Position: {val.position}</p>
+                <p className="card-text">Wage: {val.wage}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
