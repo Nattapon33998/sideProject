@@ -38,7 +38,7 @@ function App() {
     });
   };
 
-  const updateRmployeeWage = (id) => {
+  const updateEmployeeWage = (id) => {
     Axios.put("http://localhost:3001/update", { wage: newWage, id: id }).then(
       (response) => {
         setEmployeesList(
@@ -137,7 +137,7 @@ function App() {
         </button>
         {employeesList.map((val, key) => {
           return (
-            <div className="employee card mt-2">
+            <div className="employee card mt-2" key={key}>
               <div className="card-body text-left">
                 <p className="card-text">Name: {val.name}</p>
                 <p className="card-text">Age: {val.age}</p>
@@ -156,7 +156,7 @@ function App() {
                 </div>
                 <button
                   className="btn btn-warning"
-                  onClick={updateRmployeeWage(val.id)}
+                  onClick={updateEmployeeWage(val.id)}
                 >
                   Update
                 </button>
