@@ -9,6 +9,7 @@ function App() {
   const [country, setCountry] = useState("");
   const [position, setPosition] = useState("");
   const [wage, setWage] = useState(0);
+  const [newWage, setNewWage] = useState(0);
 
   const getEmployees = () => {
     Axios.get("http://localhost:3001/employees").then((response) => {
@@ -35,6 +36,27 @@ function App() {
         },
       ]);
     });
+  };
+
+  const updateRmployeeWage = (id) => {
+    Axios.put("http://localhost:3001/update", { wage: newWage, id: id }).then(
+      (response) => {
+        setEmployeesList(
+          employeesList.map((val) => {
+            return val.id == id
+              ? {
+                  id: val.id,
+                  name: val.name,
+                  age: val.age,
+                  country: val.country,
+                  position: val.position,
+                  wage: val.wage,
+                }
+              : val;
+          })
+        );
+      }
+    );
   };
 
   return (
@@ -122,6 +144,22 @@ function App() {
                 <p className="card-text">Country: {val.country}</p>
                 <p className="card-text">Position: {val.position}</p>
                 <p className="card-text">Wage: {val.wage}</p>
+                <div className="d-flex">
+                  <input
+                    type="text"
+                    type="number"
+                    style={{ width: "300px" }}
+                    placeholder="Wage update"
+                    className="form-control"
+                    onChange={(e) => setNewWage(e.target.value)}
+                  />
+                </div>
+                <button
+                  className="btn btn-warning"
+                  onClick={updateRmployeeWage(val.id)}
+                >
+                  Update
+                </button>
               </div>
             </div>
           );
