@@ -2,3 +2,7 @@ This project is CRUD or Create Read Update & Delete.
 Stack of this projet:
             Client: ReactJS, Bootstrap
             Server: NodeJS, Express, nodeMon, MySQL
+
+to start: 
+    client side: cd -> crud-frontend -> yarn start
+    server side: cd -> serverSide -> npm run dev
