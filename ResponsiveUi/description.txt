@@ -1,0 +1,7 @@
+This project use to practice how to create responsive wensite.
+
+Stack of this project:
+    Client: ReactJS
+
+to start: 
+    client side: cd -> responsive-ui -> yarn start

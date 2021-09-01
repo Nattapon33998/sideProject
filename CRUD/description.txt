@@ -3,6 +3,6 @@ Stack of this projet:
             Client: ReactJS, Bootstrap
             Server: NodeJS, Express, nodeMon, MySQL
 
-to start: 
+To start: 
     client side: cd -> crud-frontend -> yarn start
     server side: cd -> serverSide -> npm run dev
