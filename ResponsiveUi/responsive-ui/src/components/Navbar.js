@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Button } from "./Button";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
-import Button from "./Button";
-
-const Navbar = () => {
+function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -18,19 +18,24 @@ const Navbar = () => {
     }
   };
 
-  window.addEventLinstener("resize", showButton);
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener("resize", showButton);
 
   return (
-    <div>
-      <nav className="navBar">
-        <div className="navBar-container">
-          <Link to="/" className="navBar-logo">
-            Responsive <i className="fas fa-tv"></i>
+    <>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+            Responsive
+            <i className="fab fa-typo3" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
-          <ul className={click ? "nav-menu action" : "nav-menu"}>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 Home
@@ -47,14 +52,15 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link
-                to="/product"
+                to="/products"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Product
+                Products
               </Link>
             </li>
-            <li className="nav-item">
+
+            <li>
               <Link
                 to="/sign-up"
                 className="nav-links-mobile"
@@ -67,8 +73,8 @@ const Navbar = () => {
           {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
         </div>
       </nav>
-    </div>
+    </>
   );
-};
+}
 
 export default Navbar;
