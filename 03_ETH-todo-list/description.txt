@@ -1,0 +1,5 @@
+This project is to do list(deta store on blockchain).
+
+Stack of this projet:
+            Client: Html, Bootstrap
+            Server: blockchain, truffle(use to deploy), ganache(set virtual enviroment)
