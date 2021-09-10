@@ -2,9 +2,24 @@ import React from "react";
 import "./ScrollBar.css";
 
 const ScrollBar = () => {
+  const pageHeight = document.getElementsByClassName("section").clientHeight;
+  console.log(`page height: ${pageHeight}`);
+
+  var progress = document.getElementsByClassName("progressbar");
+  var totalHeight = document.body.scrollHeight - window.innerHeight;
+  console.log(`scroll height: ${document.body.scrollHeight}`);
+  console.log(`inner height: ${window.innerHeight}`);
+  console.log(`total height: ${totalHeight}`);
+  console.log(`y offset: ${window.pageYOffset}`);
+  var scroll = 0;
+  window.onscroll = () => {
+    var progressHeight = (window.pageYOffset / totalHeight) * 100;
+    scroll = progressHeight + "%";
+    // console.log(scroll);
+  };
   return (
     <div className="section">
-      <div className="progressbar"></div>
+      <div className="progressbar" style={{ height: "15%" }}></div>
       <div className="scrollPath"></div>
       <div className="section">
         <h1>Create Scroll Progress Bar</h1>
