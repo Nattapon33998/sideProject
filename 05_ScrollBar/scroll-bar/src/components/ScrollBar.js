@@ -1,25 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ScrollBar.css";
 
 const ScrollBar = () => {
-  const pageHeight = document.getElementsByClassName("section").clientHeight;
-  console.log(`page height: ${pageHeight}`);
+  //   const pageHeight = document.getElementsByClassName("section").clientHeight;
+  //   console.log(`page height: ${pageHeight}`);
 
-  var progress = document.getElementsByClassName("progressbar");
-  var totalHeight = document.body.scrollHeight - window.innerHeight;
-  console.log(`scroll height: ${document.body.scrollHeight}`);
-  console.log(`inner height: ${window.innerHeight}`);
-  console.log(`total height: ${totalHeight}`);
-  console.log(`y offset: ${window.pageYOffset}`);
-  var scroll = 0;
-  window.onscroll = () => {
-    var progressHeight = (window.pageYOffset / totalHeight) * 100;
-    scroll = progressHeight + "%";
-    // console.log(scroll);
-  };
+  //   var progress = document.getElementsByClassName("progressbar");
+  //   var totalHeight = document.body.scrollHeight - window.innerHeight;
+  //   console.log(`scroll height: ${document.body.scrollHeight}`);
+  //   console.log(`inner height: ${window.innerHeight}`);
+  //   console.log(`total height: ${totalHeight}`);
+  //   console.log(`y offset: ${window.pageYOffset}`);
+  //   var scroll = 0;
+  //   window.onscroll = () => {
+  //     var progressHeight = (window.pageYOffset / totalHeight) * 100;
+  //     scroll = progressHeight + "%";
+  //     // console.log(scroll);
+  //   };
+
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    let progressBarHandler = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scroll = `${totalScroll / windowHeight}`;
+
+      setScroll(scroll * 100);
+      console.log(totalScroll);
+      console.log(windowHeight);
+    };
+
+    window.addEventListener("scroll", progressBarHandler);
+
+    return () => window.removeEventListener("scroll", progressBarHandler);
+  });
   return (
     <div className="section">
-      <div className="progressbar" style={{ height: "15%" }}></div>
+      <div className="progressbar" style={{ height: `${scroll}%` }}></div>
       <div className="scrollPath"></div>
       <div className="section">
         <h1>Create Scroll Progress Bar</h1>
