@@ -1,0 +1,1 @@
+This project is show how to create product card & make effect in it.
