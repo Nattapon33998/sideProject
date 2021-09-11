@@ -54,7 +54,7 @@ body {
 
 .container .card .imgBx {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   z-index: 100;
   width: 100%;
@@ -63,7 +63,7 @@ body {
 }
 
 .container .card:hover .imgBx {
-  top: 0%;
+  top: 5%;
   transform: translateY(0%);
 }
 

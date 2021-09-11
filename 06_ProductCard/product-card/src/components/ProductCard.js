@@ -11,7 +11,7 @@ const ProductCard = () => {
             <img src={shoes} />
           </div>
           <div className="contentBx">
-            <h2>Nike Shoes</h2>
+            <h2>Nike Runner</h2>
             <div className="size">
               <h3>Size :</h3>
               <span>7</span>
