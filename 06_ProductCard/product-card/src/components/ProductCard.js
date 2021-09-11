@@ -19,14 +19,14 @@ const ProductCard = () => {
               <span>9</span>
               <span>10</span>
             </div>
+            <div className="color">
+              <h3>Color :</h3>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a href="#">Buy Now</a>
           </div>
-          <div className="color">
-            <h3>Color :</h3>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <a href="#">Buy Now</a>
         </div>
       </div>
     </div>
