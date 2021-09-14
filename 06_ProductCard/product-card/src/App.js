@@ -19,7 +19,10 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <ProductCard />
+      <div style={{ display: "flex" }}>
+        <ProductCard />
+        {/* <ProductCard /> */}
+      </div>
     </div>
   );
 }

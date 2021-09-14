@@ -90,7 +90,7 @@ body {
 }
 
 .container .card .contentBx h2 {
-  position: realtive;
+  position: relative;
   font-weight: 600;
   letter-spacing: 1px;
   color: #fff;
@@ -116,7 +116,7 @@ body {
 .container .card:hover .contentBx .color {
   opacity: 1;
   visibility: visible;
-  transition: 0.6s;
+  transition: 1s;
 }
 
 .container .card .contentBx .size h3,

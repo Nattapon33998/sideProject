@@ -4,7 +4,7 @@ import "./ProductCard.css";
 
 const ProductCard = () => {
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <div className="container">
         <div className="card">
           <div className="imgBx">
