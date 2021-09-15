@@ -9,7 +9,7 @@ let studentSchema = new Schema(
     email: {
       type: String,
     },
-    roolNo: {
+    rollNo: {
       type: String,
     },
   },

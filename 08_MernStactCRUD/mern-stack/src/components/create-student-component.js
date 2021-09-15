@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 const CreateStudent = () => {
   const [name, setName] = useState("");
@@ -11,6 +12,16 @@ const CreateStudent = () => {
     console.log(name);
     console.log(email);
     console.log(rollNo);
+
+    const studentObject = {
+      name: name,
+      email: email,
+      rollNo: rollNo,
+    };
+
+    axios
+      .post("http://localhost:4000/students/create-student", studentObject)
+      .then((res) => console.log(res.data));
 
     setName("");
     setEmail("");
