@@ -1,0 +1,4 @@
+backend:
+    - npm i
+    - npm i mongose express cors body-parser
+    - npm i nodemon --save-dev
