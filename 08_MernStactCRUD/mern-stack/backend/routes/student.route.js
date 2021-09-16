@@ -60,7 +60,7 @@ router.route("/update-student/:id").put((req, res, next) => {
 
 // delete student
 router.route("/delete-student/:id").delete((req, res, next) => {
-  studentSchema.findByUdAndDelete(req.params.id, (error, data) => {
+  studentSchema.findByIdAndDelete(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {
