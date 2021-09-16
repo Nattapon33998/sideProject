@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
-// import StudentTableRow from "./StudentTableRow";
+import StudentTableRow from "./StudentTableRow";
 
 const StudentList = () => {
   const [students, setStudents] = useState([]);
@@ -13,15 +13,15 @@ const StudentList = () => {
     });
   }, []);
 
-  DataTable = () => {
-    return students.map((res, i) => {
-      return <StudentTableRow obj={res} key={i} />;
+  const DataTable = () => {
+    return students.map((detail) => {
+      return <StudentTableRow key={detail.id} {...detail} />;
     });
   };
 
   return (
     <div className="table-wrapper mt-5">
-      <h1 class="mb-3">Student List</h1>
+      <h1 className="mb-3">Student List</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -31,7 +31,7 @@ const StudentList = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>{this.DataTable()}</tbody>
+        <tbody>{DataTable}</tbody>
       </Table>
     </div>
   );
