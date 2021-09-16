@@ -5,17 +5,18 @@ import StudentTableRow from "./StudentTableRow";
 
 const StudentList = () => {
   const [students, setStudents] = useState([]);
+  // console.log(students);
 
   useEffect(() => {
     axios.get("http://localhost:4000/students").then((res) => {
       setStudents(res.data);
-      console.log(students);
     });
   }, []);
+  console.log(students);
 
   const DataTable = () => {
-    return students.map((detail) => {
-      return <StudentTableRow key={detail.id} {...detail} />;
+    students.map((student) => {
+      return <StudentTableRow key={student._id} {...student} />;
     });
   };
 
@@ -31,7 +32,12 @@ const StudentList = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>{DataTable}</tbody>
+        {/* <tbody>{DataTable}</tbody> */}
+        <tbody>
+          {students.map((student) => {
+            return <StudentTableRow key={student._id} {...student} />;
+          })}
+        </tbody>
       </Table>
     </div>
   );
