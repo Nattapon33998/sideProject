@@ -15,6 +15,7 @@ const StudentTableRow = (props) => {
       .catch((error) => {
         console.log(error);
       });
+    // props.history.push("/");
   };
 
   return (
