@@ -86,3 +86,8 @@ export const NavLinks = styled(LinkS)`
     border-bottom: 3px solid #01bf71;
   }
 `;
+
+export const NavBtn = styled.nav`
+  display:flex;
+  align
+`;
