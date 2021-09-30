@@ -11,6 +11,7 @@ import {
   ArrowForward,
   ArrowRight,
 } from "./HeroElements";
+import { Button } from "../ButtonElement";
 
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
@@ -31,8 +32,14 @@ const HeroSection = () => {
           amet
         </HeroP>
         <HeroBtnWrapper>
-          <Button to="signup" onMouseEnter={onHover} onMouseLeave={onHover}>
-            Get stated {hover ? <ArrowForward /> : <ArrowRight />}
+          <Button
+            to="signup"
+            onMouseEnter={onHover}
+            onMouseLeave={onHover}
+            primary="true"
+            dark="true"
+          >
+            Get start {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </HeroBtnWrapper>
       </HeroContent>
