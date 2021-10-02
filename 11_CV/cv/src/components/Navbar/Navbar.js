@@ -1,5 +1,6 @@
 import React from "react";
 import { Link as LinkS } from "react-scroll";
+import { FaBars } from "react-icons/fa";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -21,6 +22,9 @@ const Navbar = () => {
             <LinkS className="navLink">Education</LinkS>
           </li>
         </ul>
+        <div className="mobileIcon">
+          <FaBars />
+        </div>
       </div>
     </div>
   );
