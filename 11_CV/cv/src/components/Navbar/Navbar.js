@@ -3,7 +3,7 @@ import { Link as LinkS } from "react-scroll";
 import { FaBars } from "react-icons/fa";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   return (
     <div className="nav">
       <div className="navContainer">
@@ -22,7 +22,7 @@ const Navbar = () => {
             <LinkS className="navLink">Education</LinkS>
           </li>
         </ul>
-        <div className="mobileIcon">
+        <div className="mobileIcon" onClick={toggle}>
           <FaBars />
         </div>
       </div>

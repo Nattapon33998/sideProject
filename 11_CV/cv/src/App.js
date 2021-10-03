@@ -1,11 +1,17 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div>
-      <Navbar />
+      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} />
       <h2>Logo</h2>
       <h2>About</h2>
       <h2>Logo</h2>
