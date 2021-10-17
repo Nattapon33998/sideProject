@@ -1,0 +1,2 @@
+to install brownie we use pipx
+    - install pipx: python3 -m pip install --user pipx
