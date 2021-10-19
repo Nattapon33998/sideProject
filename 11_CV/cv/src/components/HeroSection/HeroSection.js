@@ -7,7 +7,7 @@ import "./HeroSection.css";
 const HeroSection = () => {
   return (
     <div className="heroContainer" id="Home">
-      <div className="heroBg">
+      <div className="heroBackground">
         <video
           className="videoBg"
           playsInline
@@ -18,13 +18,13 @@ const HeroSection = () => {
           type="video/mp4"
         />
       </div>
-      {/* <div className="heroContent">
+      <div className="heroContent">
         <img className="profile" src={profile} />
         <div className="textContent">
           <h1 className="textH1">Nattapon</h1>
           <p className="textP">babababababababababababababababababababababab</p>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
