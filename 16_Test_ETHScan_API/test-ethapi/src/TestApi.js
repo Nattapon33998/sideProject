@@ -11,9 +11,12 @@ const TestApi = () => {
       )
       .then((res) => {
         const data = res.data;
-        setAbi(JSON.stringify(data));
+        const obj = JSON.stringify(data);
+        const json = JSON.parse(obj);
+        console.log(json);
+        // setAbi(obj);
         // setAbi(JSON.parse(abi));
-        console.log(`Abi: ${abi}`);
+        // console.log(`Abi: ${abi}`);
       }, [])
       .catch((err) => console.log(err));
   });
