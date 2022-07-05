@@ -56,6 +56,47 @@ app.get("/users/:id", async (req, res) => {
   });
 });
 
+app.put("/users/update", async (req, res) => {
+  const user = req.body;
+  const id = parseInt(user.id);
+  const client = new MongoClient(uri);
+  await client.connect();
+  await client
+    .db("mydb")
+    .collection("users")
+    .updateOne(
+      { id: id },
+      {
+        $set: {
+          id: parseInt(user.id),
+          fname: user.fname,
+          lname: user.lname,
+          username: user.username,
+          email: user.email,
+          avatar: user.avatar,
+        },
+      }
+    );
+  await client.close();
+  res.status(200).send({
+    status: "ok",
+    message: "User with ID = " + id + " is updated",
+    user: user,
+  });
+});
+
+app.delete("/users/delete", async (req, res) => {
+  const id = parseInt(req.body.id);
+  const client = new MongoClient(uri);
+  await client.connect();
+  await client.db("mydb").collection("users").deleteOne({ id: id });
+  await client.close();
+  res.status(200).send({
+    status: "ok",
+    message: "User with ID = " + id + " is deleted",
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
